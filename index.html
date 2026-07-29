@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mishprints Set 2 "IYKYK" — Community Campaign</title>
+<meta name="description" content="Preorder Mishprints Set 2 'IYKYK' — an 80-card community-built parody TCG set. Claim a slot, name a card, unlock the set.">
+<link rel="icon" href="assets/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F8F9;
+    --ink:#111111;
+    --yellow:#FFEE00;
+    --lime:#EEFF8A;
+    --pink:#FFA5E8;
+    --blue:#D1FBFF;
+    --salmon:#FEA9A9;
+    --purple:#B8A5FF;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Space Grotesk',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body.loaded{}
+  ::selection{background:var(--pink);color:var(--ink);}
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1);
+    transition-delay:var(--d,0s);
+  }
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-scale{opacity:0;transform:scale(.92);transition:opacity .6s ease,transform .6s cubic-bezier(.16,.8,.24,1);transition-delay:var(--d,0s);}
+  .reveal-scale.in{opacity:1;transform:scale(1);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal-scale{opacity:1 !important;transform:none !important;transition:none !important;}
+    *{animation-duration:.001s !important;animation-iteration-count:1 !important;}
+  }
+  h1,h2,h3,.display{
+    font-family:'Lexend Exa',sans-serif;
+    line-height:1.15;
+    margin:0;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .outline{
+    border:3px solid var(--ink);
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .btn{
+    display:inline-block;
+    font-family:'Lexend Exa',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--yellow);
+    border:3px solid var(--ink);
+    border-radius:999px;
+    padding:14px 30px;
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+    cursor:pointer;
+  }
+  .btn{position:relative;overflow:hidden;will-change:transform;}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .btn:active{transform:translate(1px,1px) scale(.97);box-shadow:2px 2px 0 var(--ink);}
+  .btn.alt{background:var(--pink);}
+  .btn.ghost{background:var(--cream);}
+  .btn .ripple{
+    position:absolute;border-radius:50%;background:rgba(17,17,17,.18);
+    transform:scale(0);animation:rippleOut .6s ease-out forwards;pointer-events:none;
+  }
+  @keyframes rippleOut{to{transform:scale(3.2);opacity:0;}}
+  .pill{
+    display:inline-block;
+    font-family:'Lexend Exa',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:999px;
+    padding:6px 16px;
+  }
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream);
+    border-bottom:3px solid var(--ink);
+    transition:box-shadow .3s ease, padding .3s ease;
+  }
+  nav.scrolled{box-shadow:0 4px 0 rgba(17,17,17,.08);}
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 24px;
+    transition:padding .3s ease;
+  }
+  nav.scrolled .wrap{padding:8px 24px;}
+  nav .brand{display:flex;align-items:center;gap:10px;}
+  nav .brand img{height:40px;transition:height .3s ease;}
+  nav.scrolled .brand img{height:32px;}
+  nav .links{display:flex;gap:22px;font-size:14px;font-weight:500;}
+  nav .links a{text-decoration:none;}
+  nav .links a:hover{text-decoration:underline;text-decoration-thickness:2px;}
+  @media(max-width:640px){ nav .links{display:none;} }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:64px 0 48px;
+    background:
+      radial-gradient(circle at 12% 20%, var(--blue) 0, transparent 40%),
+      radial-gradient(circle at 90% 15%, var(--pink) 0, transparent 38%),
+      radial-gradient(circle at 80% 85%, var(--yellow) 0, transparent 42%),
+      var(--cream);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%), rgba(255,255,255,.55), transparent 60%);
+    pointer-events:none;
+    transition:opacity .3s ease;
+    z-index:0;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;
+    position:relative;z-index:1;
+  }
+  @media(max-width:860px){ .hero .wrap{grid-template-columns:1fr;} }
+  .eyebrow{
+    font-family:'Lexend Exa',sans-serif;
+    font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:#444;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+    opacity:0;animation:fadeUp .6s ease .1s forwards;
+  }
+  .eyebrow img{height:26px;}
+  .glitch{
+    font-size:clamp(52px,10vw,108px);
+    font-weight:700;
+    letter-spacing:-.01em;
+    position:relative;
+    background:linear-gradient(90deg,#FF3CAC,#B845EC,#5271FF,#25D9C7,#FFE45E,#FF8A3C);
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-stroke:2px var(--ink);
+    text-shadow:3px 3px 0 rgba(17,17,17,.15);
+    opacity:0;
+    animation:fadeUp .7s ease .25s forwards, hueFlow 8s linear infinite;
+  }
+  @keyframes hueFlow{
+    0%{background-position:0% 50%;}
+    100%{background-position:300% 50%;}
+  }
+  .glitch::after{
+    content:attr(data-text);
+    position:absolute;left:0;top:0;
+    color:var(--pink);
+    -webkit-text-stroke:0;
+    clip-path:polygon(0 0,100% 0,100% 45%,0 45%);
+    transform:translate(4px,-3px);
+    opacity:.6;
+    z-index:-1;
+    animation:glitchShift 3.2s infinite steps(2);
+  }
+  .glitch.glitching::after{animation:glitchBurst .25s steps(2);}
+  @keyframes glitchShift{
+    0%,100%{clip-path:polygon(0 0,100% 0,100% 45%,0 45%);transform:translate(3px,-2px);}
+    50%{clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);transform:translate(-3px,3px);}
+  }
+  @keyframes glitchBurst{
+    0%{clip-path:polygon(0 10%,100% 10%,100% 30%,0 30%);transform:translate(-6px,0);}
+    50%{clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);transform:translate(6px,0);}
+    100%{clip-path:polygon(0 0,100% 0,100% 45%,0 45%);transform:translate(3px,-2px);}
+  }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero-sub{font-size:19px;margin-top:18px;max-width:52ch;line-height:1.5;opacity:0;animation:fadeUp .7s ease .4s forwards;}
+  .hero-cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;opacity:0;animation:fadeUp .7s ease .55s forwards;}
+  .hero-note{font-size:13px;color:#555;margin-top:12px;opacity:0;animation:fadeUp .7s ease .7s forwards;}
+  .hero-art{position:relative;opacity:0;animation:fadeUp .8s ease .5s forwards;}
+  .hero-art .stack{position:relative;}
+  .hero-art img{border-radius:14px;transition:transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .4s ease;}
+  .hero-art .card1{transform:rotate(-8deg);z-index:2;position:relative;width:62%;margin-left:auto;animation:floatY 5s ease-in-out infinite;}
+  .hero-art .card2{transform:rotate(9deg);position:absolute;left:0;top:22%;width:55%;z-index:1;animation:floatY 6s ease-in-out infinite .8s;}
+  .hero-art .card1:hover{transform:rotate(-8deg) translateY(-8px) scale(1.03);}
+  .hero-art .card2:hover{transform:rotate(9deg) translateY(-8px) scale(1.03);}
+  @keyframes floatY{
+    0%,100%{margin-top:0;}
+    50%{margin-top:-12px;}
+  }
+  .swirl{position:absolute;font-size:80px;opacity:.5;pointer-events:none;will-change:transform;}
+
+  /* MARQUEE */
+  .marquee{
+    background:var(--ink);color:var(--cream);
+    overflow:hidden;white-space:nowrap;padding:11px 0;
+    border-bottom:3px solid var(--ink);
+  }
+  .marquee-track{display:inline-flex;animation:marqueeScroll 26s linear infinite;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee span{
+    font-family:'Lexend Exa',sans-serif;font-size:13px;font-weight:600;
+    letter-spacing:.05em;text-transform:uppercase;padding:0 22px;
+    display:inline-flex;align-items:center;gap:22px;
+  }
+  .marquee span::after{content:"✦";opacity:.6;}
+  @keyframes marqueeScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* PROGRESS */
+  .progress-section{padding:36px 0;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);background:var(--lime);}
+  .progress-grid{display:flex;gap:32px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+  .progress-stat{font-family:'Lexend Exa',sans-serif;}
+  .progress-stat .num{font-size:32px;font-weight:700;}
+  .progress-stat .label{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#333;}
+  .bar-outer{
+    width:100%;height:22px;background:var(--cream);
+    border:3px solid var(--ink);border-radius:999px;overflow:hidden;margin:14px 0 8px;
+  }
+  .bar-inner{
+    height:100%;
+    width:0%;
+    background:repeating-linear-gradient(45deg,var(--pink),var(--pink) 10px,var(--salmon) 10px,var(--salmon) 20px);
+    background-size:200% 100%;
+    transition:width 1.4s cubic-bezier(.16,.8,.24,1);
+    animation:barStripe 1.2s linear infinite;
+  }
+  @keyframes barStripe{ from{background-position:0 0;} to{background-position:28px 0;} }
+  .progress-caption{font-size:13px;color:#333;}
+
+  section{padding:64px 0;}
+  .section-head{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .section-head h2{font-size:clamp(30px,5vw,44px);}
+  .section-head p{margin-top:12px;font-size:16px;color:#333;}
+
+  /* FREE TIER */
+  .free-band{background:var(--blue);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .free-card{
+    background:var(--cream);border-radius:18px;padding:32px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;
+  }
+  @media(max-width:760px){ .free-card{grid-template-columns:1fr;text-align:center;} }
+  .free-card .ig-icon{
+    width:64px;height:64px;border-radius:16px;
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;color:#fff;
+  }
+  .free-card ul{margin:10px 0 0;padding-left:18px;font-size:14.5px;line-height:1.7;}
+  @media(max-width:760px){ .free-card ul{text-align:left;display:inline-block;} }
+
+  /* TIERS */
+  .tiers-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  @media(max-width:960px){ .tiers-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .tiers-grid{grid-template-columns:1fr;} }
+  .tier{
+    background:var(--cream);border-radius:16px;padding:26px 22px;
+    display:flex;flex-direction:column;gap:14px;position:relative;
+    border:3px solid var(--ink);
+    transition:transform .35s cubic-bezier(.16,.8,.24,1), box-shadow .35s ease;
+  }
+  .tier:hover{transform:translateY(-10px);box-shadow:8px 10px 0 var(--ink);}
+  .tier.featured{background:var(--yellow);}
+  .tier.featured:hover{transform:translateY(-14px) scale(1.02);}
+  .tier .badge{
+    position:absolute;top:-14px;right:18px;
+    background:var(--ink);color:var(--cream);
+    font-family:'Lexend Exa',sans-serif;font-size:11px;font-weight:600;
+    padding:6px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em;
+  }
+  .tier .price{font-family:'Lexend Exa',sans-serif;font-size:34px;font-weight:700;}
+  .tier .name{font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;font-family:'Lexend Exa',sans-serif;}
+  .tier ul{margin:0;padding-left:18px;font-size:14px;line-height:1.65;flex-grow:1;}
+  .tier .btn{text-align:center;width:100%;font-size:13px;padding:12px 18px;}
+  .slot-note{
+    margin-top:2px;font-size:12.5px;font-weight:600;background:rgba(17,17,17,.08);
+    border-radius:8px;padding:8px 10px;
+  }
+
+  /* SLOTS */
+  .slots-band{background:var(--pink);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .slots-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  @media(max-width:820px){ .slots-inner{grid-template-columns:1fr;} }
+  .slot-counter{
+    background:var(--cream);border-radius:18px;padding:28px;text-align:center;
+  }
+  .slot-counter .big{font-family:'Lexend Exa',sans-serif;font-size:56px;font-weight:700;}
+  .slot-counter .of{font-size:15px;color:#333;margin-top:-6px;}
+  .slot-dots{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:18px;}
+  .slot-dots span{
+    width:16px;height:16px;border-radius:5px;border:2px solid var(--ink);background:var(--cream);
+    opacity:0;transform:scale(.4);
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1), opacity .3s ease, background .3s ease;
+  }
+  .slot-dots.in span{opacity:1;transform:scale(1);}
+  .slot-dots span.claimed{background:var(--ink);}
+  .slot-counter .big{display:inline-block;}
+  .steps{counter-reset:step;list-style:none;margin:0;padding:0;}
+  .steps li{
+    counter-increment:step;position:relative;padding-left:44px;margin-bottom:18px;font-size:15px;line-height:1.5;
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute;left:0;top:0;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--ink);color:var(--cream);
+    font-family:'Lexend Exa',sans-serif;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* UNLOCKS */
+  .unlocks{display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto;}
+  .unlock-row{
+    display:flex;align-items:center;gap:18px;background:var(--cream);
+    border-radius:14px;padding:18px 22px;
+  }
+  .unlock-row .icon{
+    width:46px;height:46px;flex-shrink:0;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--lime);border:2px solid var(--ink);
+  }
+  .unlock-row.locked .icon{background:#e4e4e4;}
+  .unlock-row .txt strong{display:block;font-size:15px;}
+  .unlock-row .txt span{font-size:13px;color:#555;}
+  .unlock-row .tag{margin-left:auto;font-size:11px;}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  @media(max-width:820px){ .gallery{grid-template-columns:repeat(3,1fr);} }
+  @media(max-width:560px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+  .gallery > div{overflow:hidden;border-radius:12px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);}
+  .gallery img{border-radius:0;transition:transform .5s cubic-bezier(.16,.8,.24,1);}
+  .gallery > div:hover img{transform:scale(1.12) rotate(-1deg);}
+  .gallery .cap{font-size:12px;text-align:center;margin-top:6px;color:#555;}
+
+  /* FAQ */
+  details{
+    background:var(--cream);border-radius:12px;padding:16px 20px;margin-bottom:12px;
+    border:2px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  details[open]{border-color:var(--ink);background:var(--blue);}
+  summary{font-family:'Lexend Exa',sans-serif;font-weight:600;font-size:15px;cursor:pointer;list-style:none;position:relative;padding-right:26px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";position:absolute;right:0;top:0;font-size:18px;
+    transition:transform .3s ease;
+  }
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin:12px 0 0;font-size:14.5px;line-height:1.6;color:#333;
+    animation:fadeUp .3s ease;
+  }
+
+  /* FOOTER CTA */
+  .final-cta{
+    background:var(--ink);color:var(--cream);text-align:center;padding:70px 0;
+  }
+  .final-cta h2{color:var(--cream);font-size:clamp(30px,5vw,46px);}
+  .final-cta p{color:#ccc;margin:14px 0 28px;}
+  footer{
+    background:var(--ink);color:#999;font-size:13px;padding:24px 0 40px;text-align:center;
+    border-top:1px solid #333;
+  }
+  footer a{color:#ccc;text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="Mishprints logo">
+    </div>
+    <div class="links">
+      <a href="#tiers">Founder Tiers</a>
+      <a href="#slots">Claim a Slot</a>
+      <a href="#unlocks">Unlocks</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn" href="#tiers" style="padding:10px 20px;font-size:13px;">Back This</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="swirl" style="top:10%;left:4%;">🌀</div>
+  <div class="swirl" style="bottom:6%;right:6%;">✨</div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="pill">Community Preorder</span> Set 2 · ~80 Cards</div>
+      <h1 class="glitch" data-text="IYKYK">IYKYK</h1>
+      <p class="hero-sub">Mishprints Set 2 is built <em>with</em> the community, not just for it. Preorder your pack, claim one of 15 open card slots, and help fund the set into existence — no crowdfunding donation, just an early order that makes production happen.</p>
+      <div class="hero-cta">
+        <a href="#tiers" class="btn">See Founder Tiers</a>
+        <a href="https://instagram.com/mishprintsofficial" target="_blank" rel="noopener" class="btn ghost">Follow for Free Perks</a>
+      </div>
+      <div class="hero-note">Parody trading card set · not affiliated with Pokémon · self-published by Mishprints</div>
+    </div>
+    <div class="hero-art">
+      <div class="stack">
+        <img class="card2 outline" src="assets/images/card-gary.png" alt="Mishprints parody card art">
+        <img class="card1 outline" src="assets/images/card-boilturts.png" alt="Mishprints parody card art">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Parody TCG</span><span>Community Built</span><span>80 Cards</span><span>15 Open Slots</span><span>No Deadline</span><span>Not Affiliated With Pokémon</span>
+    <span>Parody TCG</span><span>Community Built</span><span>80 Cards</span><span>15 Open Slots</span><span>No Deadline</span><span>Not Affiliated With Pokémon</span>
+  </div>
+</div>
+
+<section class="progress-section">
+  <div class="wrap">
+    <div class="progress-grid reveal" style="--d:0s">
+      <div class="progress-stat">
+        <div class="num"><span data-count-prefix="$" data-count="0">$0</span><span style="font-weight:400;font-size:18px;"> raised of $6,200</span></div>
+        <div class="label">Community Funding Goal</div>
+      </div>
+      <div class="progress-stat">
+        <div class="num"><span data-count="15">15</span></div>
+        <div class="label">Card Slots Open</div>
+      </div>
+      <div class="progress-stat">
+        <div class="num">No Deadline</div>
+        <div class="label">Long-runway campaign</div>
+      </div>
+    </div>
+    <div class="bar-outer reveal" style="--d:.15s"><div class="bar-inner" data-fill="19"></div></div>
+    <div class="progress-caption reveal" style="--d:.25s">~$1,200 goes to artwork · ~$5,000 goes to production &amp; shipping. Every preorder moves the bar — this isn't a donation, it's a set you'll hold in your hands.</div>
+  </div>
+</section>
+
+<section class="free-band">
+  <div class="wrap">
+    <div class="free-card outline reveal-scale">
+      <div class="ig-icon">📸</div>
+      <div>
+        <h3 style="font-size:20px;">Free Tier — Follow @mishprintsofficial</h3>
+        <p style="margin:6px 0 0;font-size:14.5px;">No purchase needed to have a voice in Set 2. Following unlocks:</p>
+        <ul>
+          <li>Voting in card &amp; theme polls</li>
+          <li>Submitting parody name ideas</li>
+          <li>Entering easter-egg / hidden-card contests</li>
+          <li>First look at production updates</li>
+        </ul>
+      </div>
+      <a class="btn alt" href="https://instagram.com/mishprintsofficial" target="_blank" rel="noopener">Follow on IG</a>
+    </div>
+  </div>
+</section>
+
+<section id="tiers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Founder Tiers</h2>
+      <p>These are preorders, not donations — every tier ships real product from the "Based" Alpha lineage, reworked for Set 2. Extras like pins, stickers, and playmats are still pending vendor quotes — see Community Unlocks below.</p>
+    </div>
+    <div class="tiers-grid">
+
+      <div class="tier outline reveal" style="--d:0s">
+        <div class="name">Supporter</div>
+        <div class="price">$15</div>
+        <ul>
+          <li>1 booster pack (Set 2)</li>
+          <li>Shoutout credit on @mishprintsofficial</li>
+        </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder — Big Cartel</a>
+      </div>
+
+      <div class="tier outline reveal" style="--d:.08s">
+        <div class="name">Builder</div>
+        <div class="price">$45</div>
+        <ul>
+          <li>1 booster pack (Set 2)</li>
+          <li>1 exclusive promo card</li>
+        </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder — Big Cartel</a>
+      </div>
+
+      <div class="tier featured outline reveal" style="--d:.16s">
+        <div class="badge">15 slots only</div>
+        <div class="name">Main Character</div>
+        <div class="price">$75</div>
+        <ul>
+          <li>1 full booster box</li>
+          <li>Claim a Pokémon slot — suggest the parody name</li>
+          <li>Credited in the collector booklet</li>
+          <li>1 exclusive promo card</li>
+        </ul>
+        <div class="slot-note">First-come, first-served — 15 of ~80 cards are open to backers.</div>
+        <a class="btn" href="#slots">Claim a Slot</a>
+      </div>
+
+      <div class="tier outline reveal" style="--d:.24s">
+        <div class="name">Flex</div>
+        <div class="price">$150</div>
+        <ul>
+          <li>1 full booster box</li>
+          <li>1 exclusive promo card</li>
+          <li>1 signed card</li>
+        </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder — Big Cartel</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;font-size:13px;color:#555;margin-top:28px;">Reference pricing: online box $60 (8 packs + box topper) / pack $8 · con pricing box $40 / pack $6. Final pack count per box (8 vs. 10) pending manufacturer confirmation.</p>
+  </div>
+</section>
+
+<section id="slots" class="slots-band">
+  <div class="wrap">
+    <div class="slots-inner">
+      <div class="slot-counter outline reveal-scale">
+        <div class="big"><span data-count="15">15</span> / 15</div>
+        <div class="of">slots still open</div>
+        <div class="slot-dots">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p style="font-size:12.5px;margin-top:16px;color:#333;">Filled slots turn dark. Updated as Main Character tier backers lock in.</p>
+      </div>
+      <div>
+        <h2 class="reveal" style="font-size:30px;margin-bottom:20px;">How a Slot Works</h2>
+        <ol class="steps stagger">
+          <li class="reveal">Back the <strong>Main Character</strong> tier ($75) via Big Cartel.</li>
+          <li class="reveal">Pick an open Pokémon-parody slot from the current checklist.</li>
+          <li class="reveal">Submit your parody name idea for that card.</li>
+          <li class="reveal">Mishprints reviews &amp; gives final approval on the name.</li>
+          <li class="reveal">Your name is credited to that card in the collector booklet.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="unlocks">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Community Unlocks</h2>
+      <p>Instead of stretch goals with a countdown, Set 2 unlocks extras as milestones hit — no rush, no pressure. Pricing below is pending vendor quotes and minimum order quantities.</p>
+    </div>
+    <div class="unlocks stagger">
+      <div class="unlock-row reveal">
+        <div class="icon">✅</div>
+        <div class="txt"><strong>Core Set — 80 Cards</strong><span>Confirmed and in production once funding covers artwork + print run.</span></div>
+        <div class="tag pill" style="background:var(--ink);">Funded First</div>
+      </div>
+      <div class="unlock-row locked reveal">
+        <div class="icon">🔒</div>
+        <div class="txt"><strong>Sticker Sheet</strong><span>Pending vendor quote &amp; MOQ.</span></div>
+      </div>
+      <div class="unlock-row locked reveal">
+        <div class="icon">🔒</div>
+        <div class="txt"><strong>Enamel Pins</strong><span>Pending vendor quote &amp; MOQ.</span></div>
+      </div>
+      <div class="unlock-row locked reveal">
+        <div class="icon">🔒</div>
+        <div class="txt"><strong>Collector Coin</strong><span>Pending vendor quote &amp; MOQ.</span></div>
+      </div>
+      <div class="unlock-row locked reveal">
+        <div class="icon">🔒</div>
+        <div class="txt"><strong>Playmat</strong><span>Pending vendor quote &amp; MOQ.</span></div>
+      </div>
+      <div class="unlock-row locked reveal">
+        <div class="icon">🔒</div>
+        <div class="txt"><strong>Collector Booklet (print)</strong><span>Digital credits confirmed — print version pending cost.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>From the Alpha Set</h2>
+      <p>A look at the art style and product carrying over from "Based" Alpha Edition into Set 2.</p>
+    </div>
+    <div class="gallery">
+      <div class="reveal-scale" style="--d:0s"><img src="assets/images/card-boilturts.png" alt="Boilturts parody card"></div>
+      <div class="reveal-scale" style="--d:.08s"><img src="assets/images/card-gary.png" alt="Gary parody card"></div>
+      <div class="reveal-scale" style="--d:.16s"><img src="assets/images/card-elder-charl.png" alt="Elder Charl parody card"></div>
+      <div class="reveal-scale" style="--d:.24s"><img src="assets/images/card-yellburd.png" alt="Yellburd parody card"></div>
+      <div class="reveal-scale" style="--d:.32s"><img src="assets/images/card-ganggang.png" alt="GangGang parody card"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>FAQ</h2>
+    </div>
+    <div class="stagger" style="max-width:700px;margin:0 auto;">
+      <details class="reveal">
+        <summary>Is this a donation or a preorder?</summary>
+        <p>It's a preorder. Every tier ships real product — packs, boxes, promo cards. Your money funds artwork and production for Set 2, and you get physical cards in return.</p>
+      </details>
+      <details class="reveal">
+        <summary>Where do I actually check out?</summary>
+        <p>Checkout happens on our storefront at mishprints.com (Big Cartel). This page is the campaign hub — tiers link straight out to checkout.</p>
+      </details>
+      <details class="reveal">
+        <summary>How does the card slot / parody name thing work?</summary>
+        <p>15 of the ~80 cards in Set 2 are left open. Main Character backers claim one first-come-first-served and submit a parody name idea. Mishprints has final approval, and your name is credited in the collector booklet either way.</p>
+      </details>
+      <details class="reveal">
+        <summary>Is Mishprints affiliated with Pokémon?</summary>
+        <p>No. Mishprints is an independent, self-published parody card series inspired by the aesthetics of classic TCGs. It is not affiliated with, endorsed by, or sponsored by Pokémon or Nintendo.</p>
+      </details>
+      <details class="reveal">
+        <summary>Is there a deadline?</summary>
+        <p>No hard deadline — this is a long-runway campaign. Community Unlocks get added as funding milestones are hit rather than as a ticking-clock stretch goal.</p>
+      </details>
+      <details class="reveal">
+        <summary>How do I get free perks without buying anything?</summary>
+        <p>Follow @mishprintsofficial on Instagram. That's where polls, parody-name submissions, easter-egg contests, and production updates happen — no purchase required.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap reveal-scale">
+    <h2>Help build Set 2</h2>
+    <p>80 cards. 15 open slots. One community.</p>
+    <a class="btn" href="#tiers">Back This Campaign</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Mishprints — parody trading card series, not affiliated with Pokémon.<br>
+    <a href="https://mishprints.com" target="_blank" rel="noopener">mishprints.com</a> ·
+    <a href="https://instagram.com/mishprintsofficial" target="_blank" rel="noopener">@mishprintsofficial</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* auto-stagger delays for containers marked .stagger */
+  document.querySelectorAll('.stagger').forEach(function(container){
+    var children = container.querySelectorAll(':scope > .reveal, :scope > .reveal-scale');
+    children.forEach(function(child, i){
+      child.style.setProperty('--d', (i * 0.08) + 's');
+    });
+  });
+
+  /* reveal on scroll */
+  var revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* nav shrink on scroll */
+  var nav = document.querySelector('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, {passive:true});
+
+  /* hero cursor spotlight + swirl parallax */
+  var hero = document.querySelector('.hero');
+  if(hero && !reduceMotion){
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width) * 100;
+      var my = ((e.clientY - r.top) / r.height) * 100;
+      hero.style.setProperty('--mx', mx + '%');
+      hero.style.setProperty('--my', my + '%');
+      document.querySelectorAll('.swirl').forEach(function(s, i){
+        var depth = (i + 1) * 10;
+        var dx = (mx - 50) / depth;
+        var dy = (my - 50) / depth;
+        s.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      });
+    });
+  }
+
+  /* periodic glitch burst on headline */
+  var glitchEl = document.querySelector('.glitch');
+  if(glitchEl && !reduceMotion){
+    setInterval(function(){
+      glitchEl.classList.add('glitching');
+      setTimeout(function(){ glitchEl.classList.remove('glitching'); }, 250);
+    }, 4000);
+  }
+
+  /* button ripple */
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      if(reduceMotion) return;
+      var r = btn.getBoundingClientRect();
+      var ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      var size = Math.max(r.width, r.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - r.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - r.top - size/2) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(function(){ ripple.remove(); }, 650);
+    });
+  });
+
+  /* animated number counters */
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var prefix = el.getAttribute('data-count-prefix') || '';
+    if(isNaN(target)) return;
+    if(target === 0){ el.textContent = prefix + '0'; return; }
+    var start = 0, duration = 1200, startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var val = Math.round(start + (target - start) * eased);
+      el.textContent = prefix + val.toLocaleString();
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var countEls = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var countIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          reduceMotion ? (entry.target.textContent = (entry.target.getAttribute('data-count-prefix')||'') + entry.target.getAttribute('data-count')) : animateCount(entry.target);
+          countIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.5});
+    countEls.forEach(function(el){ countIo.observe(el); });
+  }
+
+  /* progress bar fill on view */
+  var barInner = document.querySelector('.bar-inner');
+  if(barInner){
+    var barIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.style.width = entry.target.getAttribute('data-fill') + '%';
+          barIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    barIo.observe(barInner);
+  }
+
+  /* slot dots stagger-in */
+  var slotDots = document.querySelector('.slot-dots');
+  if(slotDots){
+    var dotsIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          entry.target.querySelectorAll('span').forEach(function(dot, i){
+            dot.style.transitionDelay = (i * 0.04) + 's';
+          });
+          dotsIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.3});
+    dotsIo.observe(slotDots);
+  }
+})();
+</script>
+
+</body>
+</html>
