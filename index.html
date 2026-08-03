@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mishprints Set 2 "IYKYK": Community Campaign</title>
-<meta name="description" content="Preorder Mishprints Set 2 'IYKYK', a ~70+ card community-built parody trading card set. Claim a slot, create your own card, unlock the set.">
+<meta name="description" content="Preorder Mishprints Set 2 'IYKYK', a ~80+ card community-built parody trading card set. Claim a slot, create your own card, unlock the set.">
 <link rel="icon" href="assets/images/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -265,9 +265,9 @@
 
   /* TIERS */
   .tiers-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;
   }
-  @media(max-width:960px){ .tiers-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:860px){ .tiers-grid{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:560px){ .tiers-grid{grid-template-columns:1fr;} }
   .tier{
     background:var(--cream);border-radius:16px;padding:26px 22px;
@@ -278,6 +278,7 @@
   .tier:hover{transform:translateY(-10px);box-shadow:8px 10px 0 var(--ink);}
   .tier.featured{background:var(--yellow);}
   .tier.featured:hover{transform:translateY(-14px) scale(1.02);}
+  .tier.gold{background:var(--yellow);}
   .tier .badge{
     position:absolute;top:-14px;right:18px;
     background:var(--ink);color:var(--cream);
@@ -482,9 +483,9 @@
   <div class="swirl" style="bottom:6%;right:6%;">✨</div>
   <div class="wrap">
     <div>
-      <div class="eyebrow"><span class="pill">Community Preorder</span> Set 2 · ~70+ Cards</div>
+      <div class="eyebrow"><span class="pill">Community Preorder</span> Set 2 · ~80+ Cards</div>
       <h1 class="hero-title">IYKYK</h1>
-      <p class="hero-sub">Mishprints Set 2 is built <em>with</em> the community, not just for it. Preorder your cards, create your OWN custom card, and help fund the set into existence. No crowdfunding donation, just an early order that makes production happen.</p>
+      <p class="hero-sub">Mishprints Set 2 is built <em>with</em> the community, not just for it. Preorder your cards and unlock the opportunity to create your own custom card, all while helping fund the set into existence. No crowdfunding donation, just an early order that makes production happen.</p>
       <div class="hero-cta">
         <a href="#tiers" class="btn">See Founder Tiers!</a>
         <a href="https://instagram.com/mishprintsofficial" target="_blank" rel="noopener" class="btn ghost">Follow for Free Perks</a>
@@ -502,8 +503,8 @@
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>Parody Trading Cards</span><span>Community Built</span><span>70+ Cards</span><span>$7K Goal</span><span>15 Open Slots</span><span>Ends Nov 1</span>
-    <span>Parody Trading Cards</span><span>Community Built</span><span>70+ Cards</span><span>$7K Goal</span><span>15 Open Slots</span><span>Ends Nov 1</span>
+    <span>Parody Trading Cards</span><span>Community Built</span><span>80+ Cards</span><span>$7K Goal</span><span>Choose Your Mishprint</span><span>Ends Nov 1</span>
+    <span>Parody Trading Cards</span><span>Community Built</span><span>80+ Cards</span><span>$7K Goal</span><span>Choose Your Mishprint</span><span>Ends Nov 1</span>
   </div>
 </div>
 
@@ -557,10 +558,11 @@
       <div class="tier outline reveal" style="--d:0s">
         <div class="name">Booster Packs</div>
         <div class="price">$6</div>
+        <div class="price-compare">Normal retail is $7</div>
         <ul>
           <li>1 Booster Pack of IYKYK!</li>
+          <li>Each pack comes with 9 cards!</li>
         </ul>
-        <div class="slot-note" style="opacity:.7;">Unlimited.</div>
         <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
       </div>
 
@@ -584,16 +586,16 @@
       <div class="tier outline reveal" style="--d:.16s">
         <div class="name">Founder Box</div>
         <div class="price">$45</div>
+        <div class="price-compare">Normal retail is $65</div>
         <ul>
           <li>1 Booster Box of IYKYK</li>
           <li>Founder supporter badge on website</li>
         </ul>
-        <div class="slot-note" style="opacity:.7;">Unlimited until campaign ends.</div>
         <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
       </div>
 
       <div class="tier featured outline reveal" style="--d:.24s">
-        <div class="badge">15 slots only</div>
+        <div class="badge">Choose Your Mishprint!</div>
         <div class="name">Main Character</div>
         <div class="price">$175</div>
         <ul>
@@ -610,6 +612,31 @@
           <div class="slot-bar-outer"><div class="slot-bar-inner"></div></div>
         </div>
         <a class="btn" href="#slots">Claim a Slot!</a>
+      </div>
+
+      <div class="tier gold outline reveal" style="--d:.32s">
+        <div class="badge">Best Value!</div>
+        <div class="name">Early Bird Case</div>
+        <div class="price">$190</div>
+        <div class="price-compare">Normal retail is $390</div>
+        <ul>
+          <li>6 Booster Boxes of IYKYK (1 case)</li>
+          <li>First print wave!</li>
+          <li>Campaign-exclusive "Early Backer" digital badge on website</li>
+        </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
+      </div>
+
+      <div class="tier gold outline reveal" style="--d:.4s">
+        <div class="badge">Best Value!</div>
+        <div class="name">Founder Case</div>
+        <div class="price">$250</div>
+        <div class="price-compare">Normal retail is $390</div>
+        <ul>
+          <li>6 Booster Boxes of IYKYK (1 case)</li>
+          <li>Founder supporter badge on website</li>
+        </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
       </div>
 
     </div>
@@ -673,7 +700,7 @@
     <div class="unlocks stagger">
       <div class="unlock-row reveal">
         <div class="icon">✅</div>
-        <div class="txt"><strong>Core Set: 70+ Cards</strong><span>Confirmed and in production once funding covers artwork + print run.</span></div>
+        <div class="txt"><strong>Core Set: 80+ Cards</strong><span>Confirmed and in production once funding covers artwork + print run.</span></div>
         <div class="tag pill" style="background:var(--ink);">Funded First</div>
       </div>
       <div class="unlock-row locked reveal">
@@ -717,6 +744,7 @@
   </div>
 </section>
 
+<!-- Gallery section hidden until real Set 2 card art is ready. Was showing Set 1 "Based" Alpha cards, which read as confusing Set 2 previews.
 <section>
   <div class="wrap">
     <div class="section-head reveal">
@@ -732,6 +760,8 @@
     </div>
   </div>
 </section>
+-->
+
 
 <section id="faq">
   <div class="wrap">
@@ -749,7 +779,7 @@
       </details>
       <details class="reveal">
         <summary>How does the card slot / parody name thing work?</summary>
-        <p>15 of the ~70+ cards in Set 2 are left open. Main Character backers ($175) claim one first-come-first-served and recommend any Mishprint they want, no checklist required! Suggest a parody name and two attack names, and get your name printed on the card. Final design remains at Mishprints' discretion. Concepts that don't fit the tone or violate copyright/community guidelines may be declined.</p>
+        <p>15 of the ~80+ cards in Set 2 are left open. Main Character backers ($175) claim one first-come-first-served and recommend any Mishprint they want, no checklist required! Suggest a parody name and two attack names, and get your name printed on the card. Final design remains at Mishprints' discretion. Concepts that don't fit the tone or violate copyright/community guidelines may be declined.</p>
       </details>
       <details class="reveal">
         <summary>What happens at $7,000?</summary>
@@ -774,7 +804,7 @@
 <section class="final-cta">
   <div class="wrap reveal-scale">
     <h2>Help Build Set 2!</h2>
-    <p>70+ cards. 15 open slots. $7,000 goal. Ends November 1, 2026. One community.</p>
+    <p>80+ cards. Choose your Mishprint. $7,000 goal. Ends November 1, 2026. One community.</p>
     <a class="btn" href="#tiers">Back This Campaign!</a>
   </div>
 </section>
@@ -806,7 +836,7 @@
       countEl.innerHTML = '<span class="n">' + list.length + '</span> backer' + (list.length === 1 ? '' : 's') + ' and counting';
       list.forEach(function(b, i){
         var style = b.tier === 'main-character' ? 'main-character' : (b.style === 'producer' ? 'producer' : 'founder');
-        var icon = style === 'main-character' ? '👑 ' : (style === 'producer' ? '🎬 ' : '');
+        var icon = style === 'main-character' ? '👑 ' : '';
         var chip = document.createElement('span');
         chip.className = 'backer-chip style-' + style;
         chip.style.transitionDelay = Math.min(i * 0.04, 1.2) + 's';

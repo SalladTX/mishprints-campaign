@@ -1,6 +1,7 @@
 /*
   Add one entry per backer here. tier must match one of:
   "early-bird" | "founder-box" | "booster-pack" | "main-character"
+  | "early-bird-case" | "founder-case"
   Order doesn't matter, newest can go anywhere, the page sorts for display.
 
   early-bird and main-character are capped (100 and 15 respectively).
