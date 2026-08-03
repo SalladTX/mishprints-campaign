@@ -18,5 +18,5 @@
   { name: "@another_user", tier: "founder-box", style: "producer" },
 */
 const BACKERS = [
-  // { name: "@example_user", tier: "main-character" },
+  { name: "@Sallad", tier: "founder-box", style: "producer" },
 ];
