@@ -15,11 +15,19 @@
     everything else     -> plain "Founder" pill
   To give someone the animated rainbow "Producer" pill outside the
   collector tier too (for standout backers), add: style: "producer"
+  To give someone the gold "Baller" pill outside the main-character
+  tier too, add: style: "baller"
+
+  If someone bought more than one of a capped tier (e.g. multiple
+  cases), add qty: N so the claimed-slots count reflects it without
+  duplicating their chip on the wall (defaults to 1 if omitted).
 
   Example:
   { name: "@example_user", tier: "main-character" },
   { name: "@another_user", tier: "founder-box", style: "producer" },
+  { name: "@bulk_buyer", tier: "early-bird-case", style: "baller", qty: 2 },
 */
 const BACKERS = [
   { name: "@Sallad", tier: "founder-box", style: "producer" },
+  { name: "@Nathan M", tier: "early-bird-case", style: "baller", qty: 2 },
 ];
