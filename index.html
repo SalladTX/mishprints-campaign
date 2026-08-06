@@ -279,6 +279,16 @@
   .tier.featured{background:var(--yellow);}
   .tier.featured:hover{transform:translateY(-14px) scale(1.02);}
   .tier.gold{background:var(--yellow);}
+  .tier.producer{
+    border:3px solid transparent;border-radius:16px;
+    background:
+      linear-gradient(var(--cream),var(--cream)) padding-box,
+      linear-gradient(90deg,#FF3CAC,#B845EC,#5271FF,#25D9C7,#FFE45E,#FF8A3C,#FF3CAC,#B845EC,#5271FF,#25D9C7,#FFE45E,#FF8A3C,#FF3CAC) border-box;
+    background-size:100% 100%, 300% 100%;
+    background-position:0 0, 0 0;
+    animation:rainbowFlow 3s linear infinite;
+  }
+  .tier.producer:hover{transform:translateY(-14px) scale(1.02);}
   .tier .badge{
     position:absolute;top:-14px;right:18px;
     background:var(--ink);color:var(--cream);
@@ -512,7 +522,7 @@
   <div class="wrap">
     <div class="progress-grid reveal" style="--d:0s">
       <div class="progress-stat">
-        <div class="num"><span data-count-prefix="$" data-count="0">$0</span><span style="font-weight:400;font-size:18px;"> raised of $7,000</span></div>
+        <div class="num"><span data-count-prefix="$" data-count="250">$250</span><span style="font-weight:400;font-size:18px;"> raised of $7,000</span></div>
         <div class="label">Community Funding Goal</div>
       </div>
       <div class="progress-stat">
@@ -524,7 +534,7 @@
         <div class="label">Campaign Deadline</div>
       </div>
     </div>
-    <div class="bar-outer reveal" style="--d:.15s"><div class="bar-inner" data-fill="0"></div></div>
+    <div class="bar-outer reveal" style="--d:.15s"><div class="bar-inner" data-fill="3.6"></div></div>
     <div class="progress-caption reveal" style="--d:.25s">Every preorder moves the bar toward $7,000. Hit it and retail pricing drops storewide! Hit the goals along the way and they stay unlocked for good. See <a href="#stretch-goals" style="text-decoration:underline;">Stretch Goals</a> below.</div>
   </div>
 </section>
@@ -639,6 +649,24 @@
           <li>Founder supporter badge on website</li>
           <li>Campaign-exclusive "Baller" digital badge on website</li>
         </ul>
+        <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
+      </div>
+
+      <div class="tier producer outline reveal" style="--d:.48s">
+        <div class="badge">Limited: 20</div>
+        <div class="name">The Collector</div>
+        <div class="price">$500</div>
+        <ul>
+          <li>1 Uncut sheet of cards (more details to come)</li>
+          <li>3 Booster Boxes</li>
+          <li>1 Producer-exclusive promo card</li>
+          <li>All boxes signed and numbered</li>
+          <li>"Producer" badge on the Founders Wall</li>
+        </ul>
+        <div class="slot-bar-wrap" data-slot-tier="collector" data-slot-cap="20">
+          <div class="slot-bar-label"><span>Slots claimed</span><span class="slot-bar-count">0 / 20</span></div>
+          <div class="slot-bar-outer"><div class="slot-bar-inner"></div></div>
+        </div>
         <a class="btn ghost" href="https://mishprints.com" target="_blank" rel="noopener">Preorder Now!</a>
       </div>
 
@@ -838,7 +866,7 @@
     } else {
       countEl.innerHTML = '<span class="n">' + list.length + '</span> backer' + (list.length === 1 ? '' : 's') + ' and counting';
       list.forEach(function(b, i){
-        var style = b.tier === 'main-character' ? 'main-character' : (b.style === 'producer' ? 'producer' : 'founder');
+        var style = b.tier === 'main-character' ? 'main-character' : ((b.tier === 'collector' || b.style === 'producer') ? 'producer' : 'founder');
         var icon = style === 'main-character' ? '👑 ' : '';
         var chip = document.createElement('span');
         chip.className = 'backer-chip style-' + style;
