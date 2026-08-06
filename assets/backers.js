@@ -9,7 +9,7 @@
   bars on the tier cards from how many entries of each tier appear below.
 
   Backer wall chip styling is automatic based on tier:
-    main-character tier -> gold "Main Character" pill
+    main-character tier -> gold "Baller" pill
     everything else     -> plain "Founder" pill
   To give someone the animated rainbow "Producer" pill instead (for
   standout backers), add: style: "producer"
