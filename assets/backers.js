@@ -33,4 +33,5 @@ const BACKERS = [
   { name: "@Xanigosdragonden", tier: "founder-box", style: "producer" },
   { name: "@Jake F", tier: "founder-box" },
   { name: "@Elise J", tier: "founder-box" },
+  { name: "@Alison C", tier: "early-bird-case", style: "baller" },
 ];
