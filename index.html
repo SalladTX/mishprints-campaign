@@ -430,6 +430,21 @@
     animation:rainbowFlow 3s linear infinite;
   }
 
+  /* TEAM */
+  .team-band{background:var(--salmon);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+  .team-grid{display:flex;gap:44px;justify-content:center;flex-wrap:wrap;}
+  .polaroid{
+    background:#fff;padding:14px 14px 20px;border-radius:4px;width:270px;
+    box-shadow:6px 6px 0 var(--ink);
+    transform:rotate(-3deg);
+    transition:transform .35s cubic-bezier(.16,.8,.24,1), box-shadow .35s ease;
+  }
+  .polaroid:nth-child(2){transform:rotate(2.5deg);}
+  .polaroid:hover{transform:rotate(0deg) translateY(-8px) scale(1.03);box-shadow:8px 10px 0 var(--ink);}
+  .polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;margin-bottom:14px;border-radius:2px;}
+  .polaroid .cap strong{display:block;font-family:'Lexend Exa',sans-serif;font-size:15px;margin-bottom:6px;color:var(--ink);}
+  .polaroid .cap span{display:block;font-size:13px;line-height:1.55;color:#333;}
+
   /* GALLERY */
   .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
   @media(max-width:820px){ .gallery{grid-template-columns:repeat(3,1fr);} }
@@ -740,6 +755,31 @@
       <span><i class="legend-swatch style-founder"></i>Founder</span>
       <span><i class="legend-swatch style-main-character"></i>Baller</span>
       <span><i class="legend-swatch style-producer"></i>Producer</span>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team-band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Meet the Team</h2>
+      <p>The two humans behind Mishprints Set 2.</p>
+    </div>
+    <div class="team-grid">
+      <div class="polaroid reveal-scale" style="--d:0s;">
+        <img src="assets/images/team-lucia.jpg" alt="Lucia, Mishprints illustrator, with her dog Tobby">
+        <div class="cap">
+          <strong>Lucia — Illustrator</strong>
+          <span>OG Mishprints artist, worked on Based and is currently killing it on IYKYK. She lives with the star of her life, Tobby!</span>
+        </div>
+      </div>
+      <div class="polaroid reveal-scale" style="--d:.1s;">
+        <img src="assets/images/team-dallas.jpg" alt="Dallas, Mishprints creator, designer, and writer">
+        <div class="cap">
+          <strong>Dallas — Designer</strong>
+          <span>Creator, designer, and writer for Mishprints. Loves cake, probably going to get diabetes soon. Been playing TCGs since he was 7 years old.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
