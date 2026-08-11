@@ -537,7 +537,7 @@
   <div class="wrap">
     <div class="progress-grid reveal" style="--d:0s">
       <div class="progress-stat">
-        <div class="num"><span data-count-prefix="$" data-count="1614">$1,614</span><span style="font-weight:400;font-size:18px;"> raised of $7,000</span></div>
+        <div class="num"><span data-count-prefix="$" data-count="2094">$2,094</span><span style="font-weight:400;font-size:18px;"> raised of $7,000</span></div>
         <div class="label">Community Funding Goal</div>
       </div>
       <div class="progress-stat">
@@ -549,7 +549,7 @@
         <div class="label">Campaign Deadline</div>
       </div>
     </div>
-    <div class="bar-outer reveal" style="--d:.15s"><div class="bar-inner" data-fill="23.1"></div></div>
+    <div class="bar-outer reveal" style="--d:.15s"><div class="bar-inner" data-fill="29.9"></div></div>
     <div class="progress-caption reveal" style="--d:.25s">Every preorder moves the bar toward $7,000. Hit it and retail pricing drops storewide! Hit the goals along the way and they stay unlocked for good. See <a href="#stretch-goals" style="text-decoration:underline;">Stretch Goals</a> below.</div>
   </div>
 </section>
@@ -904,12 +904,14 @@
     var countEl = document.getElementById('backersCount');
     var list = (typeof BACKERS !== 'undefined') ? BACKERS : [];
 
-    if(!list.length){
+    var wallList = list.filter(function(b){ return !b.hideChip; });
+
+    if(!wallList.length){
       empty.style.display = 'block';
       countEl.style.display = 'none';
     } else {
-      countEl.innerHTML = '<span class="n">' + list.length + '</span> backer' + (list.length === 1 ? '' : 's') + ' and counting';
-      list.forEach(function(b, i){
+      countEl.innerHTML = '<span class="n">' + wallList.length + '</span> backer' + (wallList.length === 1 ? '' : 's') + ' and counting';
+      wallList.forEach(function(b, i){
         var style = (b.tier === 'main-character' || b.style === 'baller') ? 'main-character' : ((b.tier === 'collector' || b.style === 'producer') ? 'producer' : 'founder');
         var icon = b.tier === 'main-character' ? '👑 ' : '';
         var chip = document.createElement('span');

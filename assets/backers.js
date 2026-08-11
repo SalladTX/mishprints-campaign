@@ -22,14 +22,23 @@
   cases), add qty: N so the claimed-slots count reflects it without
   duplicating their chip on the wall (defaults to 1 if omitted).
 
+  If someone bought into more than one capped tier (e.g. a case AND
+  a Main Character slot), add one entry per tier so each slot count
+  is credited, but add hideChip: true to every entry after the first
+  so they only get one chip on the wall.
+
   Example:
   { name: "@example_user", tier: "main-character" },
   { name: "@another_user", tier: "founder-box", style: "producer" },
   { name: "@bulk_buyer", tier: "early-bird-case", style: "baller", qty: 2 },
+  { name: "@multi_tier", tier: "early-bird-case" },
+  { name: "@multi_tier", tier: "collector", hideChip: true },
 */
 const BACKERS = [
   { name: "@Sallad", tier: "founder-box", style: "producer" },
-  { name: "@Nathan M", tier: "early-bird-case", style: "baller", qty: 2 },
+  { name: "@Nathan M", tier: "early-bird-case", style: "producer" },
+  { name: "@Nathan M", tier: "main-character", hideChip: true },
+  { name: "@Nathan M", tier: "collector", hideChip: true },
   { name: "@Xanigosdragonden", tier: "founder-box", style: "producer" },
   { name: "@Jake F", tier: "founder-box" },
   { name: "@Elise J", tier: "founder-box" },
