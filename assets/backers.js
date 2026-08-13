@@ -46,4 +46,5 @@ const BACKERS = [
   { name: "@Daniel U", tier: "early-bird-case", style: "baller" },
   { name: "@April R", tier: "early-bird-case", style: "baller" },
   { name: "@Jeffaroony", tier: "early-bird-case", style: "baller" },
+  { name: "@Christopher W", tier: "early-bird", qty: 3 },
 ];
